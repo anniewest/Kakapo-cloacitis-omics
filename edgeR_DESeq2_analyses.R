@@ -28,7 +28,7 @@ wts.counts.sub = wts.summary.df[,c(1,4:16)] %>%
 
 sample.info <- data.frame(colnames(wts.counts.sub))
 names(sample.info) <- c('SampleID')
-sample.info$status <- ifelse(sample.info$SampleID %in% c("S12.wts_featurecounts_counts","S13.wts_featurecounts_counts","S8.wts_featurecounts_counts","S9.wts_featurecounts_counts"), 'Healthy', 'Diseased')
+sample.info$status <- ifelse(sample.info$SampleID %in% c("S12.wts_featurecounts_counts","S13.wts_featurecounts_counts","S8.wts_featurecounts_counts","S9.wts_featurecounts_counts"), 'Healthy', 'Affected')
 
 # Run DESeq2
 dds <- DESeqDataSetFromMatrix(countData = wts.counts.sub,
@@ -95,7 +95,7 @@ hok.genes.df.plot = pivot_longer(hok.genes.df,
   left_join(hok.wgs.genes) %>% 
   separate(KEGG_desc, c("K0_number", "gene_name"), ": ")
 
-hok.genes.df.plot$status <- ifelse(hok.genes.df.plot$Sample %in% c("S12","S13","S8","S9"), 'Healthy', 'Diseased')
+hok.genes.df.plot$status <- ifelse(hok.genes.df.plot$Sample %in% c("S12","S13","S8","S9"), 'Healthy', 'Affected')
 hok.genes.df.plot$Sample <- factor(hok.genes.df.plot$Sample, level = c("S1","S2","S3","S4","S5","S6","S7","S8","S9","S10",
                                                                      "S11","S12","S13"))
 
