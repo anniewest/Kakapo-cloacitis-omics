@@ -42,7 +42,7 @@ sample.info <- data.frame(colnames(phyloflash.df.wide)) %>%
   arrange(.[[1]]) %>%
   rename(SampleID = 1)
 
-sample.info$status <- ifelse(sample.info$SampleID %in% c("Kakapo_S12","Kakapo_S13","Kakapo_S8","Kakapo_S9"), 'Healthy', 'Diseased')
+sample.info$status <- ifelse(sample.info$SampleID %in% c("Kakapo_S12","Kakapo_S13","Kakapo_S8","Kakapo_S9"), 'Healthy', 'Affected')
 sample.info$name <- c("F-Bravo","S-Uri","S-Hikoi","S-Mukeke","S-Atareta","F-Alice","F-Taeatanga",
                       "F-Cyndy","F-Merv","F-Bella","F-Sinbad","F-Nora","F-Scratch")
 sample.info$type <- ifelse(sample.info$SampleID %in% c("Kakapo_S10","Kakapo_S11","Kakapo_S12","Kakapo_S13"), 'Swab', 'Faecal')
